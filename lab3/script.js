@@ -63,4 +63,30 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("wynik").innerHTML =
       "Wynik porównania 3 liczb :" + numberThree;
   }
+
+  function NWD(a, b) {
+    while (b !== 0) {
+      let temp = b;
+      b = a % b;
+      a = temp;
+    }
+    return a;
+  }
+
+  let liczba1 = parseInt(prompt("Podaj pierwszą liczbę całkowitą: "));
+  let liczba2 = parseInt(prompt("Podaj drugą liczbę całkowitą: "));
+
+  if (isNaN(liczba1) || isNaN(liczba2)) {
+    alert("Podane wartości nie są liczbami całkowitymi.");
+  } else {
+    let nwd = NWD(liczba1, liczba2);
+    alert(
+      "Największy wspólny dzielnik dla liczb " +
+        liczba1 +
+        " i " +
+        liczba2 +
+        " wynosi: " +
+        nwd
+    );
+  }
 });
