@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h4 {
+  font-size: 30px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: aliceblue;
+  padding: 20px 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 10px 2px #aaa;
+  z-index: 100;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 50px;
+  list-style: none;
+}
+
+header nav a {
+  text-decoration: none;
+  color: black;
+}
+
+header nav a.home {
+  color: chartreuse;
+}
+header nav a.name {
+  color: blue;
+  font-size: 200%;
+  margin-right: 180px;
+}
+
+article,
+section {
+  display: block;
+  margin: 0 120px 0 120px;
+  font-size: 20px;
+}
+
+article {
+  position: relative;
+  display: block;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 150px 120px;
+}
+
+.article-element {
+  width: 50%;
+  box-sizing: border-box;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorite-shows,
+.favorite-books {
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

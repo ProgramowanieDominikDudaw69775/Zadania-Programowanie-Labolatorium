@@ -1,0 +1,28 @@
+.favorite-shows {
+  font-family: "Arial", sans-serif; /* Ustawienie czcionki */
+  margin-top: 40px; /* Górny margines */
+  padding: 20px; /* Wewnętrzny padding */
+  background-color: #f4f4f4; /* Kolor tła */
+  border-radius: 8px; /* Zaokrąglenie rogów */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Cień */
+}
+
+.favorite-shows h2 {
+  font-size: 24px; /* Rozmiar czcionki dla tytułu */
+  margin-bottom: 20px; /* Dolny margines dla tytułu */
+  color: #333; /* Kolor tekstu */
+}
+
+.favorite-shows ul {
+  list-style-type: none; /* Usunięcie punktorów listy */
+  padding: 0; /* Usunięcie wewnętrznego paddingu */
+}
+
+.favorite-shows li {
+  margin-bottom: 15px; /* Dolny margines dla każdego elementu listy */
+  line-height: 1.5; /* Wysokość linii */
+}
+
+.favorite-shows li strong {
+  color: #0077cc; /* Kolor dla tytułów seriali */
+}
