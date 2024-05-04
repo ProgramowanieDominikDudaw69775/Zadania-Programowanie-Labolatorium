@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="button-container">
+      <button class="button" onclick="changeColor(1)">Button 1</button>
+      <button class="button" onclick="changeColor(2)">Button 2</button>
+      <button class="button" onclick="changeColor(3)">Button 3</button>
+    </div>
+    <div class="image-container">
+      <img class="image" id="image1" src="image.png" alt="Image 1" />
+    </div>
+    <div class="button-container">
+      <button class="button" onclick="toggleImage()">
+        Pokaż / Schowaj obrazek
+      </button>
+    </div>
+
+    <div>
+      <input type="text" id="textInput" placeholder="Wpisz wartość" />
+      <button onclick="addToList()">Dodaj do listy</button>
+    </div>
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>Imię</th>
+          <th>Nazwisko</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div>
+      <input type="text" id="nameInput" placeholder="Imię" />
+      <input type="text" id="surnameInput" placeholder="Nazwisko" />
+      <button onclick="addToTable()">Dodaj do tabeli</button>
+    </div>
+
+    <div class="container">
+      <h2>Temperature Converter</h2>
+      <input type="number" id="celsiusInput" placeholder="Celsius" />
+      <button onclick="convertToFahrenheit()">Convert to Fahrenheit</button>
+      <p id="fahrenheitResult"></p>
+
+      <input type="number" id="fahrenheitInput" placeholder="Fahrenheit" />
+      <button onclick="convertToCelsius()">Convert to Celsius</button>
+      <p id="celsiusResult"></p>
+    </div>
+
+    <ul id="itemList"></ul>
+    <script src="script.js"></script>
+    <script>
+      let prevButton = null;
+
+      function changeColor(buttonId) {
+        const button = document.querySelectorAll(".button")[buttonId - 1];
+
+        if (prevButton !== null) {
+          prevButton.style.backgroundColor = "#3498db";
+        }
+
+        button.style.backgroundColor = "#e74c3c";
+        prevButton = button;
+      }
+    </script>
+    <script>
+      let isImageVisible = false;
+
+      function toggleImage() {
+        const image = document.getElementById("image1");
+
+        if (isImageVisible) {
+          image.style.display = "none";
+          document.querySelector(".button").textContent = "Pokaż obrazek";
+        } else {
+          image.style.display = "block";
+          document.querySelector(".button").textContent = "Schowaj obrazek";
+        }
+
+        isImageVisible = !isImageVisible;
+      }
+    </script>
+
+    <script>
+      function addToList() {
+        const textInput = document.getElementById("textInput");
+        const inputValue = textInput.value.trim();
+
+        if (inputValue !== "") {
+          const itemList = document.getElementById("itemList");
+          const listItem = document.createElement("li");
+          listItem.textContent = inputValue;
+          itemList.appendChild(listItem);
+          textInput.value = ""; // Clear input field
+        } else {
+          alert("Pole tekstowe jest puste! Wpisz wartość.");
+        }
+      }
+    </script>
+    <script>
+      function addToTable() {
+        const nameInput = document.getElementById("nameInput");
+        const surnameInput = document.getElementById("surnameInput");
+        const name = nameInput.value.trim();
+        const surname = surnameInput.value.trim();
+
+        if (name !== "" && surname !== "") {
+          const tableBody = document.querySelector("#dataTable tbody");
+          const newRow = tableBody.insertRow();
+          const cell1 = newRow.insertCell(0);
+          const cell2 = newRow.insertCell(1);
+          const cell3 = newRow.insertCell(2);
+          cell1.textContent = name;
+          cell2.textContent = surname;
+          cell3.innerHTML =
+            '<button onclick="removeRow(this.parentNode.parentNode)">Usuń</button>';
+          nameInput.value = "";
+          surnameInput.value = "";
+        } else {
+          alert("Pola Imię i Nazwisko nie mogą być puste! Wpisz wartości.");
+        }
+      }
+
+      function removeRow(row) {
+        row.parentNode.removeChild(row);
+      }
+    </script>
+    <script>
+      function convertToFahrenheit() {
+        const celsiusInput = document.getElementById("celsiusInput").value;
+        const celsius = parseFloat(celsiusInput);
+
+        if (!isNaN(celsius)) {
+          const fahrenheit = (celsius * 9) / 5 + 32;
+          document.getElementById(
+            "fahrenheitResult"
+          ).textContent = `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
+        } else {
+          document.getElementById("fahrenheitResult").textContent =
+            "Invalid input! Please enter a valid number.";
+        }
+      }
+
+      function convertToCelsius() {
+        const fahrenheitInput =
+          document.getElementById("fahrenheitInput").value;
+        const fahrenheit = parseFloat(fahrenheitInput);
+
+        if (!isNaN(fahrenheit)) {
+          const celsius = ((fahrenheit - 32) * 5) / 9;
+          document.getElementById(
+            "celsiusResult"
+          ).textContent = `${fahrenheit}°F is ${celsius.toFixed(2)}°C`;
+        } else {
+          document.getElementById("celsiusResult").textContent =
+            "Invalid input! Please enter a valid number.";
+        }
+      }
+    </script>
+  </body>
+</html>
