@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wyświetlanie liczb losowych</title>
+  </head>
+  <body>
+    <h1>Liczby losowe:</h1>
+    <ul id="liczby"></ul>
+
+    <script>
+      function wypelnijTablice(rozmiar, min, max) {
+        const tablica = [];
+        for (let i = 0; i < rozmiar; i++) {
+          tablica.push(Math.floor(Math.random() * (max - min + 1)) + min);
+        }
+        return tablica;
+      }
+
+      const liczby = wypelnijTablice(10, 1, 100);
+
+      const lista = document.getElementById("liczby");
+      liczby.forEach(function (liczba) {
+        const elementListy = document.createElement("li");
+        elementListy.textContent = liczba;
+        lista.appendChild(elementListy);
+      });
+    </script>
+  </body>
+</html>
