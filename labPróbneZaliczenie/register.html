@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rejestracja</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" class="nav-link">Kalkulator</a>
+    </nav>
+    <div class="container">
+      <div class="registration-form">
+        <h2>Formularz Rejestracyjny</h2>
+        <form onsubmit="return validateForm()">
+          <label for="login">Login:</label>
+          <input type="text" id="login" name="login" minlength="5" required />
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="password">Hasło:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            minlength="8"
+            required
+          />
+          <label for="confirm-password">Powtórz hasło:</label>
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+            required
+          />
+          <button type="submit">Zarejestruj się</button>
+        </form>
+        <div id="error-message"></div>
+      </div>
+    </div>
+    <script src="register.js"></script>
+  </body>
+</html>

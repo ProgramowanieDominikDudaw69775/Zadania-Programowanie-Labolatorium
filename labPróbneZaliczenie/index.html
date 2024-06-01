@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="register.html" class="nav-link">Rejestracja</a>
+    </nav>
+    <div class="container">
+      <div class="calculator">
+        <div id="result-display">Wynik: 0</div>
+        <input type="text" id="num1" placeholder="Wprowadź liczbę" />
+        <select id="operator">
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">*</option>
+          <option value="/">/</option>
+        </select>
+        <input type="text" id="num2" placeholder="Wprowadź liczbę" />
+        <div class="buttons">
+          <button onclick="calculateResult()">Oblicz</button>
+          <button onclick="clearFields()">Wyczyść</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
